@@ -3,7 +3,7 @@ labels:
 spec:
   destination:
     server: https://kubernetes.default.svc
-  team-riker:
+  teamRiker:
     source:
       repoURL: https://github.com/badal-deep-shared/team-riker-argocd-repo
       targetRevision: main
