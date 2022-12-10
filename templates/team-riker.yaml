@@ -13,9 +13,9 @@ spec:
     namespace: team-riker
     server: {{ .Values.spec.destination.server }}
   source:
-    repoURL: {{ .Values.spec.source.repoURL }}
-    targetRevision: {{ .Values.spec.source.targetRevision }}
-    path: teams/team-riker/prod
+    repoURL: {{ .Values.spec.team-riker.source.repoURL }}
+    targetRevision: {{ .Values.spec.team-riker.source.targetRevision }}
+    path: {{ .Values.spec.team-riker.source.path }}
     helm:
       values: |
         {{- toYaml .Values | nindent 8 }}
