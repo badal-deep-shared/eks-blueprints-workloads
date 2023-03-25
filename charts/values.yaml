@@ -8,6 +8,11 @@ spec:
       repoURL: https://github.com/badal-deep-shared/team-riker-argocd-repo
       targetRevision: main
       path: dev
+  teamGryffindor:
+    source:
+      repoURL: https://github.com/badal-deep-shared/team-riker-argocd-repo
+      targetRevision: main
+      path: dev
 
   # Thoses default values can be surcharged by Infrastructure as Code
   env: dev

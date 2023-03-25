@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: team-Gryffindor
+  namespace: argocd
+  labels:
+    {{- toYaml .Values.labels | nindent 4 }}  
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  destination:
+    namespace: team-riker
+    server: {{ .Values.spec.destination.server }}
+  source:
+    repoURL: {{ .Values.spec.teamGryffindor.source.repoURL }}
+    targetRevision: {{ .Values.spec.teamGryffindor.source.targetRevision }}
+    path: {{ .Values.spec.teamGryffindor.source.path }}
+    helm:
+      values: |
+        {{- toYaml .Values | nindent 8 }}
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
